@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e3a8a;
+  --color-primary-dark: #1e2a6b;
+  --color-primary-light: #3b5cbf;
+  --color-accent: #4f46e5;
+  --color-accent-light: #6366f1;
+  
+  --font-sans: 'Poppins', sans-serif;
+  
+  --animate-fade-in: fadeIn 0.8s ease-in;
+  --animate-slide-up: slideUp 0.8s ease-out;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ============================================
+   HIDE SCROLLBAR (keeping scroll functionality)
+   ============================================ */
+
+/* For Chrome, Safari, Edge, Opera */
+/* Custom Thin Scrollbar - Beautiful Alternative */
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1e3a8a, #4f46e5);
+  border-radius: 10px;
+  border: 1px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1e2a6b, #3730a3);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #28282B #f1f5f9;
+}
+/* ============================================ */
+
+.gradient-text {
+  background: linear-gradient(to right, #1e3a8a, #4f46e5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-padding {
+  padding: 5rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding { padding: 5rem 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .section-padding { padding: 5rem 2rem; }
+}
