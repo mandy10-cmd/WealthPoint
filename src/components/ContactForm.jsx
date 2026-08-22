@@ -206,7 +206,7 @@ const ContactForm = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        placeholder="Mandar Wanjari"
+                        placeholder="rohit sharma"
                         className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none transition"
                       />
                     </div>
@@ -222,7 +222,7 @@ const ContactForm = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder="mandarwanjari@gmail.com"
+                        placeholder="xyz@gmail.com"
                         className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none transition"
                       />
                     </div>
