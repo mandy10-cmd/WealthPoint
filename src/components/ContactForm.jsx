@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, User, MessageSquare, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import {  GOOGLE_SHEETS_URL } from '../config/config';
+import { GOOGLE_SHEETS_URL, EMAILJS_CONFIG } from '../config/config';
+
+// Change this to 'wealthpoint.finance@gmail.com' when ready for production
+const RECIPIENT_EMAIL = 'wanjarimandar@gmail.com';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -18,13 +21,23 @@ const ContactForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Send Email via EmailJs
   const sendEmail = async () => {
     const templateParams = {
+      // FIX: Matches EmailJS dashboard 'To Email' field set to {{email}} or {{to_email}}
+      email: RECIPIENT_EMAIL,
+      to_email: RECIPIENT_EMAIL,
+      to_name: 'Wealth Point',
+
+      // User details (who filled the form)
       from_name: formData.name,
       from_email: formData.email,
       from_phone: formData.phone,
-      service: formData.service || 'Not Specified',
+      reply_to: formData.email, // Allows direct reply to client in Gmail
+
+      // Extra aliases in case template uses {{name}} or {{phone}}
+      name: formData.name,
+      phone: formData.phone,
+      service: formData.service || 'General Inquiry',
       message: formData.message,
       submitted_at: new Date().toLocaleString('en-IN', {
         day: '2-digit',
@@ -43,16 +56,17 @@ const ContactForm = () => {
     );
   };
 
-  // Send to Google Sheets
   const sendToGoogleSheets = async () => {
     try {
       await fetch(GOOGLE_SHEETS_URL, {
         method: 'POST',
-        mode: 'no-cors', // Required for Google Apps Script
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          recipient: RECIPIENT_EMAIL,
+          submittedAt: new Date().toISOString(),
+        }),
       });
       return { success: true };
     } catch (error) {
@@ -61,67 +75,34 @@ const ContactForm = () => {
     }
   };
 
-  // Save to localStorage (backup)
-  const saveToLocalStorage = () => {
-    const existingSubmissions = JSON.parse(localStorage.getItem('wealthpoint_submissions')) || [];
-    const newSubmission = {
-      id: Date.now(),
-      ...formData,
-      submittedAt: new Date().toLocaleString('en-IN', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-      }),
-    };
-    const updatedSubmissions = [...existingSubmissions, newSubmission];
-    localStorage.setItem('wealthpoint_submissions', JSON.stringify(updatedSubmissions));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setStatus({ type: '', message: '' });
 
     try {
-      // Send in parallel for faster response
-      const [emailResult, sheetsResult] = await Promise.allSettled([
-        sendEmail(),
-        sendToGoogleSheets(),
-      ]);
+      // 1. Send Email via EmailJS
+      const emailResult = await sendEmail();
+      console.log('EmailJS Success:', emailResult);
 
-      // Save to localStorage as backup
-      saveToLocalStorage();
+      // 2. Save to Google Sheets
+      sendToGoogleSheets();
 
-      // Check results
-      const emailSuccess = emailResult.status === 'fulfilled';
-      const sheetsSuccess = sheetsResult.status === 'fulfilled';
+      setStatus({
+        type: 'success',
+        message: "Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.",
+      });
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
 
-      if (emailSuccess || sheetsSuccess) {
-        setStatus({
-          type: 'success',
-          message: 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.',
-        });
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-        
-        // Log any partial failures for debugging
-        if (!emailSuccess) console.warn('Email failed:', emailResult.reason);
-        if (!sheetsSuccess) console.warn('Sheets failed:', sheetsResult.reason);
-      } else {
-        throw new Error('Both email and sheets submission failed');
-      }
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error('EmailJS Failed:', error);
+      const errorText = error?.text || error?.message || 'Check console';
       setStatus({
         type: 'error',
-        message: 'Oops! Something went wrong. Please try again or contact us directly.',
+        message: `Failed to send email (${errorText}). Please try again or contact us directly.`,
       });
     } finally {
       setLoading(false);
-      // Clear status after 6 seconds
-      setTimeout(() => setStatus({ type: '', message: '' }), 6000);
     }
   };
 
@@ -153,7 +134,7 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <p className="text-white/80 text-sm">Call Us</p>
-                    <a href="tel:+911234567890" className="font-semibold hover:underline">+91-9028480694</a>
+                    <a href="tel:+919028480694" className="font-semibold hover:underline">+91-9028480694</a>
                   </div>
                 </div>
 
@@ -163,7 +144,9 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <p className="text-white/80 text-sm">Email Us</p>
-                    <a href="mailto:wealthpoint.finance@gmail.com" className="font-semibold hover:underline break-all">wealthpoint.finance@gmail.com</a>
+                    <a href={`mailto:${RECIPIENT_EMAIL}`} className="font-semibold hover:underline break-all">
+                      {RECIPIENT_EMAIL}
+                    </a>
                   </div>
                 </div>
 
@@ -188,7 +171,6 @@ const ContactForm = () => {
 
           <div className="lg:col-span-2">
             <div className="bg-white p-8 lg:p-10 rounded-2xl shadow-xl border border-gray-100">
-              {/* Status Messages */}
               {status.message && (
                 <div
                   className={`mb-6 p-4 rounded-xl flex items-start gap-3 ${
@@ -224,7 +206,7 @@ const ContactForm = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        placeholder="John Doe"
+                        placeholder="Mandar Wanjari"
                         className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none transition"
                       />
                     </div>
@@ -240,7 +222,7 @@ const ContactForm = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder="john@example.com"
+                        placeholder="mandarwanjari@gmail.com"
                         className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none transition"
                       />
                     </div>
@@ -296,7 +278,7 @@ const ContactForm = () => {
                       onChange={handleChange}
                       required
                       rows="5"
-                      placeholder="Tell us about your financial goals..."
+                      placeholder="Tell us about your financial goals or any specific queries you have..."
                       className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-900 focus:border-transparent outline-none transition resize-none"
                     ></textarea>
                   </div>

@@ -44,13 +44,13 @@ const Hero = () => {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
               Securing your{' '}
-              <span className="bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">
                 Today
               </span>
               ,
               <br />
               Multiplying your{' '}
-              <span className="bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">
                 Tomorrow
               </span>
             </h1>
@@ -86,7 +86,7 @@ const Hero = () => {
                 <p className="text-sm text-white/80">Years Experience</p>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">₹100Cr+</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">₹20Cr+</h3>
                 <p className="text-sm text-white/80">Assets Managed</p>
               </div>
             </div>
