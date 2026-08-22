@@ -57,23 +57,23 @@ const About = () => {
           
           {/* LEFT SIDE - Founder Photo (2 columns) */}
           <div className="lg:col-span-2 relative">
-            <div className="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-blue-200 to-indigo-200 rounded-3xl opacity-30 blur-2xl"></div>
+            <div className="absolute -top-4 -left-4 w-full h-full bg-linear-to-br from-blue-200 to-indigo-200 rounded-3xl opacity-30 blur-2xl"></div>
             
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 rounded-3xl p-1.5 shadow-2xl">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-[22px] p-6 aspect-square flex items-center justify-center relative overflow-hidden">
+              <div className="relative bg-linear-to-br from-blue-900 via-blue-800 to-indigo-900 rounded-3xl p-1.5 shadow-2xl">
+                <div className="bg-linear-to-br from-blue-50 to-indigo-100 rounded-[22px] p-6 aspect-square flex items-center justify-center relative overflow-hidden">
                   
                   <div className="absolute inset-0 opacity-10" style={{
                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%231e3a8a' fill-opacity='1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10S0 14.5 0 20s4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
                   }}></div>
 
                   <div className="relative z-10 w-full h-full flex items-center justify-center">
-                    <div className="w-48 h-48 md:w-56 md:h-56 bg-gradient-to-br from-blue-900 to-indigo-600 rounded-full flex items-center justify-center shadow-2xl">
+                    <div className="w-48 h-48 md:w-56 md:h-56 bg-linear-to-br from-blue-900 to-indigo-600 rounded-full flex items-center justify-center shadow-2xl">
                       <span className="text-white text-7xl md:text-8xl font-bold">KP</span>
                     </div>
                   </div>
 
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-blue-900 to-indigo-700 py-3 text-center">
+                  <div className="absolute bottom-0 left-0 right-0 bg-linear-to-r from-blue-900 to-indigo-700 py-3 text-center">
                     <p className="text-white font-bold text-lg">Kunal Peshne</p>
                     <p className="text-white/80 text-xs">Founder & Chief Consultant</p>
                   </div>
@@ -81,7 +81,7 @@ const About = () => {
               </div>
 
               {/* Floating Badges */}
-              <div className="absolute -top-4 -right-4 bg-gradient-to-br from-yellow-400 to-orange-500 px-3 py-2 rounded-2xl shadow-2xl transform rotate-6 hover:rotate-0 transition-transform">
+              <div className="absolute -top-4 -right-4 bg-linear-to-br from-yellow-400 to-orange-500 px-3 py-2 rounded-2xl shadow-2xl transform rotate-6 hover:rotate-0 transition-transform">
                 <div className="text-center">
                   <Award className="text-white mx-auto mb-1" size={18} />
                   <p className="text-white text-[9px] font-bold uppercase tracking-wider">Certified<br/>Advisor</p>
@@ -90,7 +90,7 @@ const About = () => {
 
               <div className="absolute -bottom-4 -left-4 bg-white px-3 py-2 rounded-2xl shadow-2xl border border-gray-100 transform -rotate-6 hover:rotate-0 transition-transform">
                 <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
+                  <div className="w-9 h-9 bg-linear-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
                     <Briefcase className="text-white" size={16} />
                   </div>
                   <div>
@@ -123,7 +123,7 @@ const About = () => {
               The Visionary Behind <span className="gradient-text">Wealth Point</span>
             </h3>
 
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-900 rounded-r-xl p-4 mb-6">
+            <div className="bg-linear-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-900 rounded-r-xl p-4 mb-6">
               <div className="flex items-start gap-3">
                 <Quote className="text-blue-900 shrink-0 mt-1" size={20} />
                 <p className="text-gray-700 italic leading-relaxed text-sm md:text-base">
@@ -143,15 +143,15 @@ const About = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-3 mb-6">
-              <div className="text-center p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+              <div className="text-center p-3 bg-linear-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
                 <div className="text-xl md:text-2xl font-bold text-blue-900">500+</div>
                 <p className="text-[10px] text-gray-600 font-semibold uppercase">Clients Served</p>
               </div>
-              <div className="text-center p-3 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-100">
-                <div className="text-xl md:text-2xl font-bold text-emerald-700">₹100Cr+</div>
+              <div className="text-center p-3 bg-linear-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-100">
+                <div className="text-xl md:text-2xl font-bold text-emerald-700">₹20cr+</div>
                 <p className="text-[10px] text-gray-600 font-semibold uppercase">Assets Managed</p>
               </div>
-              <div className="text-center p-3 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl border border-orange-100">
+              <div className="text-center p-3 bg-linear-to-br from-orange-50 to-yellow-50 rounded-xl border border-orange-100">
                 <div className="text-xl md:text-2xl font-bold text-orange-700">10+</div>
                 <p className="text-[10px] text-gray-600 font-semibold uppercase">Years Expertise</p>
               </div>
@@ -181,9 +181,9 @@ const About = () => {
         </div>
 
         {/* Mission Statement Card - Full Width */}
-        <div className="relative mb-0 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-8 md:p-10 shadow-lg">
+        <div className="relative mb-0 bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-8 md:p-10 shadow-lg">
           <div className="flex flex-col md:flex-row items-start gap-6">
-            <div className="w-14 h-14 bg-gradient-to-br from-blue-900 to-indigo-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
+            <div className="w-14 h-14 bg-linear-to-br from-blue-900 to-indigo-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
               <BookOpen className="text-white" size={26} />
             </div>
             <div className="flex-1">
