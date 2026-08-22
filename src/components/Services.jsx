@@ -71,7 +71,7 @@ const Services = () => {
       statLabel: 'Tax Savings'
     },
     { 
-      image: '/services/gift-city.png',
+      image: '/sec-img/giftcity.png',
       title: 'Gift City', 
       desc: 'Access exclusive international investments through India\'s premier financial hub',
       features: ['Global Access', 'Tax Benefits', 'USD Investments'],
@@ -82,7 +82,7 @@ const Services = () => {
       statLabel: 'LRS Limit'
     },
     { 
-      image: '/services/insurance.png',
+      image: '/sec-img/insurance.jfif',
       title: 'Insurance', 
       desc: 'Comprehensive life, health & general insurance to safeguard your family\'s future',
       features: ['Life & Health', 'Best Premiums', 'Claim Support'],
