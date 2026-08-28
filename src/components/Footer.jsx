@@ -75,9 +75,13 @@ const Footer = () => {
           {/* Brand Section */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-linear-to-br from-blue-900 to-indigo-600 rounded-lg flex items-center justify-center">
-                <TrendingUp size={22} />
-              </div>
+              <div className="w-10 h-10 flex items-center justify-center">
+  <img
+    src="/Logo.jpeg"
+    alt="Wealth Point Logo"
+    className="max-w-full max-h-full object-contain"
+  />
+</div>
               <div>
                 <h3 className="text-xl font-bold">Wealth Point</h3>
                 <p className="text-[10px] text-gray-400 tracking-widest">FINANCIAL CONSULTANT</p>
@@ -175,14 +179,14 @@ const Footer = () => {
           <p className="text-gray-400 text-sm text-center sm:text-left">
             © {new Date().getFullYear()} Wealth Point Financial Consultant. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-gray-400">
-            <a href="#contact" className="hover:text-blue-400 transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#contact" className="hover:text-blue-400 transition-colors">
-              Terms of Service
-            </a>
-          </div>
+            {/* <div className="flex gap-6 text-sm text-gray-400">
+              <a href="#contact" className="hover:text-blue-400 transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#contact" className="hover:text-blue-400 transition-colors">
+                Terms of Service
+              </a>
+            </div> */}
         </div>
       </div>
     </footer>

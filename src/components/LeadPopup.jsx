@@ -27,7 +27,7 @@ const LeadPopup = () => {
     // First visit: open popup after 3s
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, 3000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
