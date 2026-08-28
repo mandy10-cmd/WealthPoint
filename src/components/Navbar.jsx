@@ -12,29 +12,22 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Calculators", href: "#calculators" },  
-  { name: "Why Us", href: "#why-us" },
-  { name: "Contact", href: "#contact" },
-];
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Calculators", href: "#calculators" },
+    { name: "Why Us", href: "#why-us" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white py-3 shadow-2xl shadow-blue-900/30 border-b-4 border-blue-900"
-          : "bg-white py-4 shadow-xl shadow-blue-900/25 border-b-4 border-blue-900/80"
+      className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 bg-white border-b-4 ${
+        scrolled ? "border-blue-900 shadow-2xl shadow-blue-900/30" : "border-blue-900/80 shadow-xl shadow-blue-900/25"
       }`}
-      style={{
-        boxShadow: scrolled
-          ? "0 10px 25px -3px rgba(30, 58, 138, 0.3), 0 4px 6px -2px rgba(30, 58, 138, 0.15)"
-          : "0 8px 20px -3px rgba(30, 58, 138, 0.25), 0 3px 6px -2px rgba(30, 58, 138, 0.1)",
-      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Logo Section */}
+      <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        {/* Logo */}
         <a href="#home" className="flex items-center gap-2 group">
           <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden ring-2 ring-blue-900/20 group-hover:ring-blue-900/40 transition-all">
             <img
@@ -85,12 +78,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div
-          className="md:hidden bg-white border-t-2 border-blue-900/20 mt-3 py-4 px-4"
-          style={{
-            boxShadow: "0 15px 30px -5px rgba(30, 58, 138, 0.3)",
-          }}
-        >
+        <div className="md:hidden bg-white border-t-2 border-blue-900/20 py-4 px-4 shadow-2xl shadow-blue-900/20">
           {navLinks.map((link) => (
             <a
               key={link.name}

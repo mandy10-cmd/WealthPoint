@@ -1,7 +1,6 @@
 import { 
-  CheckCircle2, Award, Shield, TrendingUp, Users, 
-  Sparkles, ArrowRight, Target, Heart, BookOpen,
-  Mail, Phone, Quote, Briefcase
+  CheckCircle2, Award, Shield, Target, Heart, BookOpen,
+  Quote, Briefcase
 } from 'lucide-react';
 
 const About = () => {
@@ -33,7 +32,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-linear-to-b from-white via-blue-50/20 to-white relative overflow-hidden  md:-mb-16">
+    <section id="about" className="section-padding bg-linear-to-b from-white via-blue-50/20 to-white relative overflow-hidden md:-mb-16">
       {/* Background Decorations */}
       <div className="absolute top-40 right-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl"></div>
       <div className="absolute bottom-40 left-0 w-96 h-96 bg-indigo-100/40 rounded-full blur-3xl"></div>
@@ -56,64 +55,70 @@ const About = () => {
         <div className="grid lg:grid-cols-5 gap-10 items-center mb-20">
           
           {/* LEFT SIDE - Founder Photo (2 columns) */}
-          <div className="lg:col-span-2 relative">
-            <div className="absolute -top-4 -left-4 w-full h-full bg-linear-to-br from-blue-200 to-indigo-200 rounded-3xl opacity-30 blur-2xl"></div>
+          <div className="lg:col-span-2 relative mt-4 md:mt-0">
+            {/* Glow effect behind the frame */}
+            <div className="absolute -top-4 -left-4 w-full h-full bg-linear-to-br from-blue-200 to-indigo-200 rounded-3xl opacity-30 blur-2xl z-0"></div>
             
-            <div className="relative">
-              <div className="relative bg-linear-to-br from-blue-900 via-blue-800 to-indigo-900 rounded-3xl p-1.5 shadow-2xl">
-                <div className="bg-linear-to-br from-blue-50 to-indigo-100 rounded-[22px] p-6 aspect-square flex items-center justify-center relative overflow-hidden">
+            <div className="relative z-10">
+              {/* Added mb-8 here to give breathing room for the bottom badge */}
+              <div className="relative bg-linear-to-br from-blue-900 via-blue-800 to-indigo-900 rounded-3xl p-1.5 shadow-2xl mb-8">
+                
+                {/* Full Frame Photo Container */}
+                <div className="relative rounded-[22px] aspect-square overflow-hidden group bg-blue-50">
+                  <img
+                    src="/founder photo.jpeg" 
+                    alt="Kunal Peshne - Founder & Chief Consultant"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
                   
-                  <div className="absolute inset-0 opacity-10" style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%231e3a8a' fill-opacity='1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10S0 14.5 0 20s4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
-                  }}></div>
+                  {/* Dark Gradient Overlay (ensures bottom text is always readable) */}
+                  <div className="absolute inset-0 bg-linear-to-t from-blue-900/50 via-blue-900/10 to-transparent pointer-events-none"></div>
 
-                  <div className="relative z-10 w-full h-full flex items-center justify-center">
-                    <div className="w-48 h-48 md:w-56 md:h-56 bg-linear-to-br from-blue-900 to-indigo-600 rounded-full flex items-center justify-center shadow-2xl">
-                      <span className="text-white text-7xl md:text-8xl font-bold">KP</span>
+                  {/* Bottom Title Bar Overlaid on Image */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 text-center z-20">
+                    <p className="text-white font-extrabold text-2xl tracking-wide">Kunal Peshne</p>
+                    <p className="text-blue-200 text-xs sm:text-sm mt-1 font-medium uppercase tracking-wider">
+                      Founder & Chief Consultant
+                    </p>
+                  </div>
+                </div>
+
+                {/* Floating Badges */}
+                <div className="absolute -top-5 -right-4 bg-linear-to-br from-yellow-400 to-orange-500 px-3 py-2 rounded-2xl shadow-xl transform rotate-6 hover:rotate-0 transition-transform z-30 border-2 border-white">
+                  <div className="text-center">
+                    <Award className="text-white mx-auto mb-1" size={18} />
+                    <p className="text-white text-[9px] font-bold uppercase tracking-wider">Certified<br/>Advisor</p>
+                  </div>
+                </div>
+
+                <div className="absolute -bottom-5 -left-4 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 transform -rotate-3 hover:rotate-0 transition-transform z-30">
+                  {/* <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-linear-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
+                      <Briefcase className="text-white" size={18} />
                     </div>
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 bg-linear-to-r from-blue-900 to-indigo-700 py-3 text-center">
-                    <p className="text-white font-bold text-lg">Kunal Peshne</p>
-                    <p className="text-white/80 text-xs">Founder & Chief Consultant</p>
-                  </div>
+                    <div className="pr-2">
+                      <div className="text-lg font-black text-blue-900 leading-none mb-1">10+ Yrs</div>
+                      <p className="text-[9px] text-gray-500 font-bold uppercase tracking-wider leading-none">Experience</p>
+                    </div>
+                  </div> */}
                 </div>
               </div>
 
-              {/* Floating Badges */}
-              <div className="absolute -top-4 -right-4 bg-linear-to-br from-yellow-400 to-orange-500 px-3 py-2 rounded-2xl shadow-2xl transform rotate-6 hover:rotate-0 transition-transform">
-                <div className="text-center">
-                  <Award className="text-white mx-auto mb-1" size={18} />
-                  <p className="text-white text-[9px] font-bold uppercase tracking-wider">Certified<br/>Advisor</p>
-                </div>
+              {/* Added mt-10 here so tags clear the overlapping absolute badge */}
+              <div className="mt-10 flex flex-wrap justify-center gap-2 relative z-20">
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-50 text-blue-900 text-xs font-semibold rounded-full border border-blue-100">
+                  <CheckCircle2 size={12} />
+                  AMFI Certified
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full border border-emerald-100">
+                  <CheckCircle2 size={12} />
+                  IRDAI Licensed
+                </span>
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-orange-50 text-orange-700 text-xs font-semibold rounded-full border border-orange-100">
+                  <Award size={12} />
+                  NISM Certified
+                </span>
               </div>
-
-              <div className="absolute -bottom-4 -left-4 bg-white px-3 py-2 rounded-2xl shadow-2xl border border-gray-100 transform -rotate-6 hover:rotate-0 transition-transform">
-                <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 bg-linear-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
-                    <Briefcase className="text-white" size={16} />
-                  </div>
-                  <div>
-                    <div className="text-base font-bold text-blue-900">10+ Yrs</div>
-                    <p className="text-[9px] text-gray-600 font-semibold">Experience</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
-              <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-50 text-blue-900 text-xs font-semibold rounded-full border border-blue-100">
-                <CheckCircle2 size={12} />
-                AMFI Certified
-              </span>
-              <span className="inline-flex items-center gap-1 px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full border border-emerald-100">
-                <CheckCircle2 size={12} />
-                IRDAI Licensed
-              </span>
-              <span className="inline-flex items-center gap-1 px-3 py-1 bg-orange-50 text-orange-700 text-xs font-semibold rounded-full border border-orange-100">
-                <Award size={12} />
-                NISM Certified
-              </span>
             </div>
           </div>
 

@@ -6,6 +6,8 @@ import Services from '../components/Services';
 import Calculators from '../components/Calculators';
 import WhyChooseUs from '../components/WhyChooseUs';
 import ContactForm from '../components/ContactForm';
+import LeadPopup from '../components/LeadPopup';
+import ServicesMarquee from '../components/ServicesMarquee';
 import Footer from '../components/Footer';
 
 const LandingPage = () => {
@@ -43,8 +45,15 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <div className="sticky top-20 z-40">  {/* top = navbar height */}
+  <ServicesMarquee />
+</div>
+  
+      
       <Hero />
+     
       <About />
+      <LeadPopup />
       <Services />
       {showCalculators && <Calculators onClose={handleCloseCalculators} />}
       <WhyChooseUs />

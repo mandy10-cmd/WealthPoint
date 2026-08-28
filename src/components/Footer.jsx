@@ -164,7 +164,7 @@ const Footer = () => {
             </ul>
             <div className="mt-4 p-3 bg-white/5 rounded-lg">
               <p className="text-xs text-gray-400">Registered With</p>
-              <p className="text-sm font-semibold">AMFI (ARN: 179208)</p>
+              <p className="text-sm font-semibold">AMFI </p>
               <p className="text-sm font-semibold">IRDAI Insurance Broker</p>
             </div>
           </div>

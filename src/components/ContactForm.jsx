@@ -311,6 +311,8 @@ const ContactForm = () => {
                       <option value="NPS">NPS</option>
                       <option value="Gift City">Gift City</option>
                       <option value="Insurance">Insurance</option>
+                      <option value="AIF">AIF</option>
+                      <option value="SIF">SIF</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
