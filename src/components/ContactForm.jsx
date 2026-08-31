@@ -13,7 +13,7 @@ import emailjs from "@emailjs/browser";
 import { GOOGLE_SHEETS_URL, EMAILJS_CONFIG } from "../config/config";
 
 // Change this to 'wealthpoint.finance@gmail.com' when ready for production
-const RECIPIENT_EMAIL = "wanjarimandar@gmail.com";
+const RECIPIENT_EMAIL = "wealthpoint.finance@gmail.com";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
