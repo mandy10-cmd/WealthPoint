@@ -1,93 +1,94 @@
 import { 
-  ArrowRight, Sparkles, CheckCircle2 
+  ArrowRight, CheckCircle2 
 } from 'lucide-react';
+import { useRef } from 'react';
 
 const Services = () => {
   const services = [
     { 
-      image: '/sec-img/mutual fund.jfif', // Place your image in public/services/
+      video: '/service-clips/mutual funds.webm',
+      poster: '/sec-img/mutual fund.jfif',
       title: 'Mutual Funds', 
       desc: 'Diversified portfolio solutions crafted by experts for consistent long-term wealth creation',
       features: ['SIP & Lump Sum', 'Tax Saving ELSS', 'Goal-Based Planning'],
       color: 'from-blue-500 to-blue-700',
-      bgLight: 'bg-blue-50',
       textColor: 'text-blue-700',
       stat: '15%+',
       statLabel: 'Avg Returns'
     },
     { 
-      image: '/sec-img/fixed dep.jpg',
+      video: '/service-clips/fixed-deposits.mp4',
+      poster: '/sec-img/fixed dep.jpg',
       title: 'Fixed Deposits', 
       desc: 'Rock-solid safe investments with guaranteed returns from India\'s most trusted institutions',
       features: ['Corporate FDs', 'Bank FDs', 'High Interest Rates'],
       color: 'from-purple-500 to-purple-700',
-      bgLight: 'bg-purple-50',
       textColor: 'text-purple-700',
       stat: '9.5%',
       statLabel: 'Up to Interest'
     },
     { 
-      image: '/sec-img/p2p.jpg',
+      video: '/service-clips/p2p-lending.mp4',
+      poster: '/sec-img/p2p.jpg',
       title: 'P2P Lending', 
       desc: 'Revolutionary peer-to-peer lending with attractive returns and RBI-regulated platforms',
       features: ['High Yields', 'Monthly Income', 'RBI Regulated'],
       color: 'from-pink-500 to-pink-700',
-      bgLight: 'bg-pink-50',
       textColor: 'text-pink-700',
       stat: '12%+',
       statLabel: 'Returns p.a.'
     },
     { 
-      image: '/services/pms.png',
+      video: '/service-clips/pms.mp4',
+      poster: '/services/pms.png',
       title: 'PMS', 
       desc: 'Elite Portfolio Management Services by SEBI-registered professionals for HNI investors',
       features: ['Personalized', 'SEBI Registered', 'Expert Managed'],
       color: 'from-indigo-500 to-indigo-700',
-      bgLight: 'bg-indigo-50',
       textColor: 'text-indigo-700',
       stat: '₹50L+',
       statLabel: 'Min Investment'
     },
     { 
-      image: '/sec-img/NCD.png',
+      video: '/service-clips/ncd-bonds.mp4',
+      poster: '/sec-img/NCD.png',
       title: 'NCDs / Bonds', 
       desc: 'Premium fixed income securities delivering steady returns with capital protection',
       features: ['AAA Rated', 'Fixed Returns', 'Tax Efficient'],
       color: 'from-emerald-500 to-emerald-700',
-      bgLight: 'bg-emerald-50',
       textColor: 'text-emerald-700',
       stat: '10%',
       statLabel: 'Fixed Returns'
     },
     { 
-      image: '/sec-img/NPS.png',
+      video: '/service-clips/nps.mp4',
+      poster: '/sec-img/NPS.png',
       title: 'NPS', 
       desc: 'Government-backed National Pension Scheme for a stress-free, prosperous retirement',
       features: ['Tax Benefits', 'Govt Backed', 'Retirement Corpus'],
       color: 'from-orange-500 to-orange-700',
-      bgLight: 'bg-orange-50',
       textColor: 'text-orange-700',
       stat: '₹2L',
       statLabel: 'Tax Savings'
     },
     { 
-      image: '/sec-img/giftcity.png',
+      video: '/service-clips/gift-city.mp4',
+      poster: '/sec-img/giftcity.png',
       title: 'Gift City', 
       desc: 'Access exclusive international investments through India\'s premier financial hub',
       features: ['Global Access', 'Tax Benefits', 'USD Investments'],
       color: 'from-rose-500 to-rose-700',
-      bgLight: 'bg-rose-50',
       textColor: 'text-rose-700',
       stat: '$250K',
       statLabel: 'LRS Limit'
     },
     { 
-      image: '/sec-img/insurance.jfif',
+      video: '/service-clips/insurance.mp4',
+      poster: '/sec-img/insurance.jfif',
       title: 'Insurance', 
       desc: 'Comprehensive life, health & general insurance to safeguard your family\'s future',
       features: ['Life & Health', 'Best Premiums', 'Claim Support'],
       color: 'from-teal-500 to-teal-700',
-      bgLight: 'bg-teal-50',
       textColor: 'text-teal-700',
       stat: '₹1Cr+',
       statLabel: 'Coverage'
@@ -105,7 +106,9 @@ const Services = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Wealth Building <br className="hidden sm:block" />
-            <span className="gradient-text">Solutions That Deliver</span>
+            <span className="bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Solutions That Deliver
+            </span>
           </h2>
           
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -116,95 +119,19 @@ const Services = () => {
 
           {/* Trust Bar */}
           <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-sm">
-            <div className="flex items-center gap-2 text-gray-700">
-              <CheckCircle2 className="text-green-600" size={18} />
-              <span className="font-medium">SEBI Compliant</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-700">
-              <CheckCircle2 className="text-green-600" size={18} />
-              <span className="font-medium">AMFI Certified</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-700">
-              <CheckCircle2 className="text-green-600" size={18} />
-              <span className="font-medium">IRDAI Registered</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-700">
-              <CheckCircle2 className="text-green-600" size={18} />
-              <span className="font-medium">100% Transparent</span>
-            </div>
+            {['SEBI Compliant', 'AMFI Certified', 'IRDAI Registered', '100% Transparent'].map((item, i) => (
+              <div key={i} className="flex items-center gap-2 text-gray-700">
+                <CheckCircle2 className="text-green-600" size={18} />
+                <span className="font-medium">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => (
-            <div
-              key={i}
-              className="group relative bg-white p-6 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100 overflow-hidden"
-            >
-              {/* Gradient Border on Hover */}
-              <div className={`absolute inset-0 bg-linear-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}></div>
-              
-              {/* Card Content */}
-              <div className="relative bg-white rounded-2xl -m-6 p-6 h-full flex flex-col">
-                
-                {/* Top Section: Custom Image + Stat */}
-                <div className="flex items-start justify-between mb-5">
-                  {/* CUSTOM IMAGE/LOGO FROM PUBLIC FOLDER */}
-                  <div className={`w-16 h-16 ${service.bgLight} rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 p-2 overflow-hidden`}>
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-contain"
-                      onError={(e) => {
-                        // Fallback if image doesn't load
-                        e.target.style.display = 'none';
-                        e.target.parentElement.innerHTML = `<div class="w-full h-full bg-linear-to-br ${service.color} rounded-lg flex items-center justify-center text-white font-bold text-2xl">${service.title.charAt(0)}</div>`;
-                      }}
-                    />
-                  </div>
-                  
-                  <div className="text-right">
-                    <div className={`text-2xl font-bold bg-linear-to-br ${service.color} bg-clip-text text-transparent`}>
-                      {service.stat}
-                    </div>
-                    <p className="text-xs text-gray-500 font-medium">{service.statLabel}</p>
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-900 transition-colors">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 grow">
-                  {service.desc}
-                </p>
-
-                {/* Features List */}
-                <div className="space-y-2 mb-4">
-                  {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <div className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${service.color}`}></div>
-                      <span className="text-xs text-gray-600 font-medium">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Learn More Link */}
-                <a
-                  href="#contact"
-                  className={`inline-flex items-center gap-1 text-sm font-semibold ${service.textColor} hover:gap-2 transition-all mt-auto pt-3 border-t border-gray-100`}
-                >
-                  Learn More 
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </a>
-
-                {/* Decorative Corner */}
-                <div className={`absolute -top-6 -right-6 w-24 h-24 bg-linear-to-br ${service.color} opacity-5 rounded-full group-hover:scale-150 transition-transform duration-700`}></div>
-              </div>
-            </div>
+            <ServiceCard key={i} service={service} />
           ))}
         </div>
 
@@ -237,6 +164,83 @@ const Services = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+// Card with hover-video (light mode only)
+const ServiceCard = ({ service }) => {
+  const videoRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
+  return (
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="group relative bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100 overflow-hidden"
+    >
+      {/* Video Preview */}
+      <div className="relative w-full h-44 overflow-hidden bg-gray-100">
+        <video
+          ref={videoRef}
+          src={service.video}
+          poster={service.poster}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+        />
+        <div className={`absolute inset-0 bg-linear-to-t ${service.color} opacity-20 group-hover:opacity-10 transition-opacity duration-500`}></div>
+        
+        {/* Stat Badge */}
+        <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+          <div className={`text-sm font-bold bg-linear-to-br ${service.color} bg-clip-text text-transparent`}>
+            {service.stat}
+          </div>
+        </div>
+      </div>
+
+      {/* Card Content */}
+      <div className="p-6 flex flex-col">
+        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-900 transition-colors">
+          {service.title}
+        </h3>
+
+        <p className="text-gray-600 text-sm leading-relaxed mb-4 grow">
+          {service.desc}
+        </p>
+
+        <div className="space-y-2 mb-4">
+          {service.features.map((feature, idx) => (
+            <div key={idx} className="flex items-center gap-2">
+              <div className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${service.color}`}></div>
+              <span className="text-xs text-gray-600 font-medium">{feature}</span>
+            </div>
+          ))}
+        </div>
+
+        <a
+          href="#contact"
+          className={`inline-flex items-center gap-1 text-sm font-semibold ${service.textColor} hover:gap-2 transition-all mt-auto pt-3 border-t border-gray-100`}
+        >
+          Learn More 
+          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+        </a>
+      </div>
+    </div>
   );
 };
 

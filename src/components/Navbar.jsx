@@ -23,28 +23,31 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 bg-white border-b-4 ${
-        scrolled ? "border-blue-900 shadow-2xl shadow-blue-900/30" : "border-blue-900/80 shadow-xl shadow-blue-900/25"
+        scrolled
+          ? "border-blue-900 shadow-2xl shadow-blue-900/30"
+          : "border-blue-900/80 shadow-xl shadow-blue-900/25"
       }`}
     >
       <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden ring-2 ring-blue-900/20 group-hover:ring-blue-900/40 transition-all">
-            <img
-              src="/Logo.jpeg"
-              alt="Wealth Point Logo"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <h1 className="text-xl font-bold text-blue-900 leading-tight">
-              Wealth Point
-            </h1>
-            <p className="text-[10px] text-gray-500 tracking-widest">
-              FINANCIAL CONSULTANT
-            </p>
-          </div>
-        </a>
+        <div className="flex items-center">
+  <a href="#home" className="flex items-center group">
+    <img
+      src="/peshne logo.png"
+      alt="Wealth Point Logo"
+      className="h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+    />
+  </a>
+
+  <div className="-ml-3 flex flex-col justify-center">
+    <h3 className="text-xl font-bold text-black leading-tight">
+      Wealth Point
+    </h3>
+    <p className="text-[10px] text-gray-400 tracking-widest whitespace-nowrap">
+      FINANCIAL CONSULTANT
+    </p>
+  </div>
+</div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">

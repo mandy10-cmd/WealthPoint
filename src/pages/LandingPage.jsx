@@ -6,6 +6,7 @@ import Services from '../components/Services';
 import Calculators from '../components/Calculators';
 import WhyChooseUs from '../components/WhyChooseUs';
 import ContactForm from '../components/ContactForm';
+import FindUs from '../components/FindUs';
 import LeadPopup from '../components/LeadPopup';
 import ServicesMarquee from '../components/ServicesMarquee';
 import Footer from '../components/Footer';
@@ -58,6 +59,7 @@ const LandingPage = () => {
       {showCalculators && <Calculators onClose={handleCloseCalculators} />}
       <WhyChooseUs />
       <ContactForm />
+      <FindUs />
       <Footer />
     </div>
   );
