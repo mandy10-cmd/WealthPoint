@@ -222,13 +222,13 @@ const CompanyDetails = () => {
             MAIN PROFILE CARD
         ====================================================== */}
 
-        <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-2xl">
+        <div className="overflow-hidden rounded-4xl border border-slate-200 bg-white shadow-2xl">
 
           {/* =====================================================
               PREMIUM HEADER
           ====================================================== */}
 
-          <div className="relative overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-700 px-6 py-10 text-white sm:px-10 sm:py-14">
+          <div className="relative overflow-hidden bg-linear-to-br from-blue-950 via-blue-900 to-indigo-700 px-6 py-10 text-white sm:px-10 sm:py-14">
 
             {/* Decorative circles */}
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/5" />
@@ -314,7 +314,7 @@ const CompanyDetails = () => {
                 </h2>
               </div>
 
-              <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-5 sm:p-7">
+              <div className="rounded-2xl border border-blue-100 bg-linear-to-br from-blue-50 to-indigo-50 p-5 sm:p-7">
 
                 <p className="text-sm leading-7 text-slate-700 sm:text-base">
                   At <strong>Wealth Point</strong>, we believe financial
@@ -402,7 +402,7 @@ const CompanyDetails = () => {
                 </h2>
               </div>
 
-              <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 to-blue-950 p-6 text-white sm:p-8">
+              <div className="overflow-hidden rounded-2xl bg-linear-to-br from-slate-900 to-blue-950 p-6 text-white sm:p-8">
 
                 <div className="flex flex-col items-center gap-6 sm:flex-row">
 
