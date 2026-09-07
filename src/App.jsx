@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
-import AdminPage from './pages/AdminPage';
-import CompanyDetails from './pages/CompanyDetails';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import LandingPage from "./pages/LandingPage";
+import AdminPage from "./pages/AdminPage";
+import CompanyDetails from "./pages/CompanyDetails";
 
 function App() {
   return (
