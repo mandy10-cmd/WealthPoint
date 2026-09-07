@@ -115,13 +115,11 @@ const CompanyDetails = () => {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
 
-    // Also download the company brief PDF
+    
     downloadCompanyBrief();
   };
 
-  // ===============================================================
-  // GENERATE COMPANY BRIEF PDF
-  // ===============================================================
+
   const downloadCompanyBrief = () => {
     const doc = new jsPDF({
       orientation: "portrait",
@@ -134,7 +132,7 @@ const CompanyDetails = () => {
     const margin = 15;
     let yPos = 0;
 
-    // ============ HEADER BANNER ============
+
     doc.setFillColor(23, 37, 84);
     doc.rect(0, 0, pageWidth, 50, "F");
 
@@ -398,9 +396,7 @@ const CompanyDetails = () => {
       <div className="mx-auto w-full max-w-3xl">
         <div className="overflow-hidden rounded-4xl border border-slate-200 bg-white shadow-2xl">
 
-          {/* =====================================================
-              HEADER SECTION
-          ===================================================== */}
+          
           <div className="relative overflow-hidden bg-linear-to-br from-blue-950 via-blue-900 to-indigo-700 px-6 py-10 text-white sm:px-10 sm:py-14">
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/5" />
             <div className="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-white/5" />
@@ -456,10 +452,8 @@ const CompanyDetails = () => {
 
           <div className="p-5 sm:p-8">
 
-            {/* =====================================================
-                ABOUT US
-            ===================================================== */}
-            <section className="mb-10">
+           
+            {/* <section className="mb-10">
               <div className="mb-5">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
                   About Us
@@ -484,12 +478,10 @@ const CompanyDetails = () => {
                   financial guidance for individuals, families and businesses.
                 </p>
               </div>
-            </section>
+            </section> */}
 
-            {/* =====================================================
-                SERVICES
-            ===================================================== */}
-            <section className="mb-10">
+            
+            {/* <section className="mb-10">
               <div className="mb-5">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
                   What We Do
@@ -529,11 +521,9 @@ const CompanyDetails = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </section> */}
 
-            {/* =====================================================
-                FOUNDER
-            ===================================================== */}
+         
             <section className="mb-10">
               <div className="mb-5">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
@@ -581,10 +571,8 @@ const CompanyDetails = () => {
               </div>
             </section>
 
-            {/* =====================================================
-                COMPANY INFORMATION
-            ===================================================== */}
-            <section className="mb-10">
+            
+            {/* <section className="mb-10">
               <div className="mb-5">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
                   Get In Touch
@@ -596,7 +584,7 @@ const CompanyDetails = () => {
               </div>
 
               <div className="space-y-3">
-                {/* Phone */}
+                
                 <a
                   href={`tel:${company.phone}`}
                   className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-200 hover:bg-blue-50"
@@ -615,7 +603,7 @@ const CompanyDetails = () => {
                   <ChevronRight size={18} className="text-slate-400" />
                 </a>
 
-                {/* WhatsApp */}
+                
                 <a
                   href={`https://wa.me/${company.whatsapp}`}
                   target="_blank"
@@ -638,7 +626,7 @@ const CompanyDetails = () => {
                   <ChevronRight size={18} className="text-slate-400" />
                 </a>
 
-                {/* Email */}
+                
                 <a
                   href={`mailto:${company.email}`}
                   className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-red-200 hover:bg-red-50"
@@ -657,7 +645,7 @@ const CompanyDetails = () => {
                   <ChevronRight size={18} className="text-slate-400" />
                 </a>
 
-                {/* Website */}
+                
                 <a
                   href={company.website}
                   target="_blank"
@@ -680,7 +668,7 @@ const CompanyDetails = () => {
                   <ChevronRight size={18} className="text-slate-400" />
                 </a>
 
-                {/* Address */}
+                
                 <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-100">
                     <MapPin size={21} className="text-orange-600" />
@@ -696,11 +684,9 @@ const CompanyDetails = () => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
 
-            {/* =====================================================
-                ACTION BUTTONS (3 buttons)
-            ===================================================== */}
+           
             <section className="mb-10 grid gap-3 sm:grid-cols-3">
               <button
                 type="button"
@@ -731,9 +717,7 @@ const CompanyDetails = () => {
               </a>
             </section>
 
-            {/* =====================================================
-                ENQUIRY FORM
-            ===================================================== */}
+     
             <section className="rounded-3xl bg-slate-50 p-5 sm:p-7">
               <div className="mb-6">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-700">
@@ -860,9 +844,7 @@ const CompanyDetails = () => {
             </section>
           </div>
 
-          {/* =====================================================
-              FOOTER
-          ===================================================== */}
+      
           <div className="border-t border-slate-100 bg-slate-50 px-6 py-6 text-center">
             <p className="text-sm font-bold text-slate-700">{company.name}</p>
             <p className="mt-1 text-xs text-slate-500">{company.tagline}</p>
