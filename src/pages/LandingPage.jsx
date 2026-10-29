@@ -14,12 +14,11 @@ import Footer from '../components/Footer';
 const LandingPage = () => {
   const [showCalculators, setShowCalculators] = useState(false);
 
-  // Listen for hash changes to show/hide calculators
   useEffect(() => {
     const handleHashChange = () => {
       if (window.location.hash === '#calculators') {
         setShowCalculators(true);
-        // Scroll to calculators after a small delay to allow render
+
         setTimeout(() => {
           const element = document.getElementById('calculators');
           if (element) {
@@ -29,10 +28,9 @@ const LandingPage = () => {
       }
     };
 
-    // Check on initial load
     handleHashChange();
 
-    // Listen for hash changes
+    
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -46,19 +44,18 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="sticky top-20 z-40">  {/* top = navbar height */}
+      <div className="sticky top-20 z-40">  
   <ServicesMarquee />
 </div>
   
       
       <Hero />
-     
-      <About />
       <LeadPopup />
       <Services />
       {showCalculators && <Calculators onClose={handleCloseCalculators} />}
       <WhyChooseUs />
       <ContactForm />
+      <About />
       <FindUs />
       <Footer />
     </div>
